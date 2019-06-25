@@ -6,7 +6,6 @@ class Character:
 
     original = ''
     was_guessed = False
-    errorMessage = "That is more than one character!!"
 
     def __init__(self, char):
         if len(char) == 1:

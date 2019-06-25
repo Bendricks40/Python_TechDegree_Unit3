@@ -9,6 +9,7 @@ class Phrase:
     CharacterObjectList = []
     displayed_phrase = ''
     guessed = False
+    incorrect_guesses = 0
 
     def __init__(self, phrase):
         self.phrase = phrase
@@ -20,15 +21,21 @@ class Phrase:
         self.displayed_phrase = ''
         for x in self.CharacterObjectList:
             self.displayed_phrase += (' ' + x.show_character())
-        print(self.displayed_phrase)
+        return self.displayed_phrase
 
-    def guessed_status(self):
+    def phrase_guessed_status(self):
         if '_' in self.displayed_phrase:
             return False
         else:
             return True
 
     def guess_attempt(self, guess):
+        guess_status = False
         for x in self.CharacterObjectList:
             x.guess_attempt(guess)
+            if x.guess_attempt:
+                guess_status = True
+            else:
+                self.incorrect_guesses += 1
+        return guess_status
 

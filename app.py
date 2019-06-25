@@ -1,5 +1,5 @@
 # Import your Game class
-from Projectfiles.game.py  import Game
+from Projectfiles.game import Game
 
 
 
