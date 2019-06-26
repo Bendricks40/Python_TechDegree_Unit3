@@ -16,7 +16,9 @@ class Character:
     def guess_attempt(self, guess):
         if guess == self.original:
             self.was_guessed = True
-        return self.was_guessed
+            return self.was_guessed
+        else:
+            return False
 
     def show_character(self):
         if self.original == ' ':
