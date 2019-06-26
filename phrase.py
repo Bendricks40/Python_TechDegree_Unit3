@@ -9,7 +9,7 @@ class Phrase:
     CharacterObjectList = []
     displayed_phrase = ''
     guessed = False
-    incorrect_guesses = 0
+    remaining_lives = 5
 
     def __init__(self, phrase):
         self.phrase = phrase
@@ -33,9 +33,9 @@ class Phrase:
         guess_status = False
         for x in self.CharacterObjectList:
             x.guess_attempt(guess)
-            if x.guess_attempt:
+            if x.was_guessed:
                 guess_status = True
-            else:
-                self.incorrect_guesses += 1
+        if not guess_status:
+            self.remaining_lives -= 1
         return guess_status
 
