@@ -11,6 +11,7 @@ class Game:
 
     activePhrase = "blah"
     phrases = []
+    remainingLives = 5
 
     def __init__(self, phrases):
         self.phrases = phrases
@@ -24,7 +25,7 @@ class Game:
         print("Try to guess the idiom before you run out of attempts. "
               "You are allowed 5 misses before you lose the game!\n")
         currentPhrase = Phrase(self.activePhrase)
-        print("Below is your phrase to guess - you have {} lives remaining:".format(currentPhrase.remaining_lives))
+        print("Below is your phrase to guess - you have {} lives remaining:".format(self.remainingLives))
         print(currentPhrase.display_phrase())
 
         guess = ''
@@ -37,12 +38,14 @@ class Game:
                 print("Oops! You have already guessed {}. Try again.".format(guess))
             elif not guess.isalpha():
                 print("That was not a letter--try again!")
+            elif currentPhrase.guess_attempt(guess):
+                print("NICE!! {} is part of the idiom".format(guess))
             else:
-                # Take the user's guess and see if it is valid:
-                currentPhrase.guess_attempt(guess)
+                print("YIKES! {} is not in the idiom. You have lost a life. ".format(guess))
+                self.remainingLives -= 1
 
             # if the user's guess is wrong, decrement their remaining lives:
-            if currentPhrase.remaining_lives < 1:
+            if self.remainingLives < 1:
 
                 if input("You have lost!! Play again? enter 'Y' for new game").upper() == 'Y':
                     self.activePhrase = ''
@@ -50,12 +53,12 @@ class Game:
                     newGame.start_game()
                 else:
                     break
-            print("Remaining Lives: {}\n".format(currentPhrase.remaining_lives))
+            print("Remaining Lives: {}\n".format(self.remainingLives))
 
             # Display the remaining phrase after running their last guess:
             print(currentPhrase.display_phrase())
             if currentPhrase.phrase_guessed_status():
-                print("\n\nCongratulations!! You have guessed correctly with {} lives remaining!\n\n".format(currentPhrase.remaining_lives))
+                print("\n\nCongratulations!! You have guessed correctly with {} lives remaining!\n\n".format(self.remainingLives))
                 response = input("Play again? enter 'Y' for new game: ").upper()
                 if response == 'Y':
                     self.activePhrase = ''
