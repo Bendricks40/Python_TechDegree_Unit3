@@ -1,7 +1,6 @@
 # Import your Game class
 from Projectfiles.game import Game
 from Projectfiles import masterPhraseList
-from Projectfiles.phrase import Phrase
 import copy
 
 phraselist = copy.deepcopy(masterPhraseList.fullList)
