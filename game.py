@@ -21,7 +21,8 @@ class Game:
         print("\n**********************************************"
               "\n****** Welcome to Phrase Hunter! *************"
               "\n**********************************************\n")
-        print("Try to guess the idiom before you run out of attempts. You are allowed 5 misses before you lose the game!\n")
+        print("Try to guess the idiom before you run out of attempts. "
+              "You are allowed 5 misses before you lose the game!\n")
         currentPhrase = Phrase(self.activePhrase)
         print("Below is your phrase to guess - you have {} lives remaining:".format(currentPhrase.remaining_lives))
         print(currentPhrase.display_phrase())
