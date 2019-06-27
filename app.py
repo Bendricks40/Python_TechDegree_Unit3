@@ -1,8 +1,7 @@
 # Import your Game class
-from src import Game
 import copy
-from src import masterPhraseList
-
+import masterPhraseList
+from game import Game
 
 phraselist = copy.deepcopy(masterPhraseList.fullList)
 
