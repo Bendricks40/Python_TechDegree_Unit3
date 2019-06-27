@@ -61,10 +61,9 @@ class Game:
                     newGame = Game(phraselist)
                     newGame.start_game()
                 else:
-                    print("Thanks for playing!!\n\n\")
+                    print("Thanks for playing!!\n\n")
                     break
 
 
-myGame = Game(phraselist)
-myGame.start_game()
+
 
