@@ -1,5 +1,5 @@
 # Create your Phrase class logic here.
-from Projectfiles.character import Character
+from src.PhraseHunter.character import Character
 
 
 class Phrase:

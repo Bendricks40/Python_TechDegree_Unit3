@@ -1,8 +1,8 @@
 # Create your Game class logic in here.
 import random
 import copy
-from Projectfiles import masterPhraseList
-from Projectfiles.phrase import Phrase
+from src.PhraseHunter import masterPhraseList
+from src.PhraseHunter.phrase import Phrase
 
 phraselist = copy.deepcopy(masterPhraseList.fullList)
 
