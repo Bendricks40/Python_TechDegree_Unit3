@@ -47,7 +47,7 @@ class Game:
             # if the user's guess is wrong, decrement their remaining lives:
             if self.remainingLives < 1:
 
-                if input("You have lost!! Play again? enter 'Y' for new game").upper() == 'Y':
+                if input("\n\nYou have lost!! Play again? enter 'Y' for new game: ").upper() == 'Y':
                     self.activePhrase = ''
                     newGame = Game(phraselist)
                     newGame.start_game()
