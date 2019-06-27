@@ -9,10 +9,12 @@ class Phrase:
     CharacterObjectList = []
     displayed_phrase = ''
     guessed = False
-    remaining_lives = 2
+    remaining_lives = 5
+    alreadyGuessed = []
 
     def __init__(self, phrase):
         self.CharacterObjectList = []
+        self.alreadyGuessed = []
         self.phrase = phrase
         self.rawCharacters = list(phrase)
         for char in self.rawCharacters:
@@ -32,10 +34,14 @@ class Phrase:
 
     def guess_attempt(self, guess):
         guess_status = False
+        self.alreadyGuessed.append(guess)
         for x in self.CharacterObjectList:
             if x.guess_attempt(guess):
                 guess_status = True
         if not guess_status:
             self.remaining_lives -= 1
+            print("YIKES! {} is not in the idiom. You have lost a life. ".format(guess))
+        else:
+            print("NICE!! {} is part of the idiom".format(guess))
         return guess_status
 
