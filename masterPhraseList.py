@@ -1,5 +1,5 @@
 
-testList = ['ab']
+testList = ['a', 'bb']
 
 fullList= ['A hot potato',
 'A penny for your thoughts',

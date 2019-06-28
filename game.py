@@ -9,13 +9,13 @@ phraselist = copy.deepcopy(masterPhraseList.fullList)
 
 class Game:
 
-    activePhrase = "blah"
-    phrases = []
     remainingLives = 5
+    gameOver = False
 
     def __init__(self, phrases):
         self.phrases = phrases
         self.activePhrase = self.phrases[random.randint(0, len(self.phrases)-1)].upper()
+        self.gameOver = False
 
     def start_game(self):
 
@@ -52,11 +52,13 @@ class Game:
                     newGame = Game(phraselist)
                     newGame.start_game()
                 else:
+                    print("\n\nThanks for playing!!\n\n")
+                    exit()
                     break
-            print("Remaining Lives: {}\n".format(self.remainingLives))
 
-            # Display the remaining phrase after running their last guess:
-            print(currentPhrase.display_phrase())
+            if not self.gameOver:
+                print("Remaining Lives: {}\n".format(self.remainingLives))
+                print(currentPhrase.display_phrase())
             if currentPhrase.phrase_guessed_status():
                 print("\n\nCongratulations!! You have guessed correctly with {} lives remaining!\n\n".format(self.remainingLives))
                 response = input("Play again? enter 'Y' for new game: ").upper()
@@ -65,7 +67,8 @@ class Game:
                     newGame = Game(phraselist)
                     newGame.start_game()
                 else:
-                    print("Thanks for playing!!\n\n")
+                    print("\n\nThanks for playing!\n\n")
+                    exit()
                     break
 
 

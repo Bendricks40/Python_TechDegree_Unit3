@@ -4,17 +4,13 @@ from character import Character
 
 class Phrase:
 
-    phrase = ''
-    rawCharacters = []
-    CharacterObjectList = []
     displayed_phrase = ''
-    guessed = False
-    alreadyGuessed = []
 
     def __init__(self, phrase):
         self.CharacterObjectList = []
         self.alreadyGuessed = []
         self.phrase = phrase
+        self.guessed = False
         self.rawCharacters = list(phrase)
         for char in self.rawCharacters:
             self.CharacterObjectList.append(Character(char))
