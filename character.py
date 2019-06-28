@@ -3,14 +3,13 @@
 
 class Character:
 
-    original = ''
     was_guessed = False
 
     def __init__(self, char):
-        if len(char) == 1:
+        if len(char) == 1 and (char.isalpha() or char == ' '):
             self.original = char
         else:
-            print("Not a single character!")
+            print("Not a single letter character!")
 
     def guess_attempt(self, guess):
         if guess == self.original:
