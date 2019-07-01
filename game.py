@@ -11,6 +11,9 @@ class Game:
         self.activePhrase = self.phraseList[random.randint(0, len(self.phraseList)-1)]
         self.gameOver = False
         self.remainingLives = 5
+        print("just initialized game!")
+        print(self.activePhrase.display_phrase())
+        print(self.activePhrase.)
 
     def start_game(self):
 
@@ -48,9 +51,9 @@ class Game:
                     newGame = Game(phraselist)
                     newGame.start_game()
                 else:
-                    print("\n\nThanks for playing! Have a great day! \n\n")
+                    print("\n\nHope you enjoyed the game, thanks for playing! Have a great day! \n\n")
                     exit()
-                    break
+
 
             if not self.gameOver:
                 print("Remaining Lives: {}\n".format(self.remainingLives))
@@ -63,10 +66,5 @@ class Game:
                     newGame = Game(phraselist)
                     newGame.start_game()
                 else:
-                    print("\n\nThanks for playing! Have a great day! \n\n")
+                    print("\n\nHope you enjoyed the game, thanks for playing! Have a great day! \n\n")
                     exit()
-                    break
-
-
-
-
