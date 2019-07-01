@@ -6,12 +6,12 @@ class Phrase:
 
     displayed_phrase = ''
 
-    def __init__(self, phrase):
+    def __init__(self, string):
         self.CharacterObjectList = []
         self.alreadyGuessed = []
-        self.phrase = phrase
+        self.phrase = string
         self.guessed = False
-        self.rawCharacters = list(phrase)
+        self.rawCharacters = list(string)
         for char in self.rawCharacters:
             self.CharacterObjectList.append(Character(char))
 
@@ -20,6 +20,7 @@ class Phrase:
         for x in self.CharacterObjectList:
             self.displayed_phrase += (' ' + x.show_character())
         return self.displayed_phrase
+
 
     def phrase_guessed_status(self):
         if '_' in self.displayed_phrase:

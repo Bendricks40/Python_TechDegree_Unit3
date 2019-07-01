@@ -1,21 +1,16 @@
 # Create your Game class logic in here.
-import random
 import copy
+import random
 import masterPhraseList
-from phrase import Phrase
-
-phraselist = copy.deepcopy(masterPhraseList.fullList)
 
 
 class Game:
 
-    remainingLives = 5
-    gameOver = False
-
-    def __init__(self, phrases):
-        self.phrases = phrases
-        self.activePhrase = self.phrases[random.randint(0, len(self.phrases)-1)].upper()
+    def __init__(self, phraseList):
+        self.phraseList = phraseList
+        self.activePhrase = self.phraseList[random.randint(0, len(self.phraseList)-1)]
         self.gameOver = False
+        self.remainingLives = 5
 
     def start_game(self):
 
@@ -24,7 +19,8 @@ class Game:
               "\n**********************************************\n")
         print("Try to guess the idiom before you run out of attempts. "
               "You are allowed 5 misses before you lose the game!\n")
-        currentPhrase = Phrase(self.activePhrase)
+        phraselist = copy.deepcopy(masterPhraseList.bigPhraseList)
+        currentPhrase = self.activePhrase
         print("Below is your phrase to guess - you have {} lives remaining:".format(self.remainingLives))
         print(currentPhrase.display_phrase())
 
@@ -52,7 +48,7 @@ class Game:
                     newGame = Game(phraselist)
                     newGame.start_game()
                 else:
-                    print("\n\nThanks for playing!!\n\n")
+                    print("\n\nThanks for playing! Have a great day! \n\n")
                     exit()
                     break
 
@@ -67,7 +63,7 @@ class Game:
                     newGame = Game(phraselist)
                     newGame.start_game()
                 else:
-                    print("\n\nThanks for playing!\n\n")
+                    print("\n\nThanks for playing! Have a great day! \n\n")
                     exit()
                     break
 

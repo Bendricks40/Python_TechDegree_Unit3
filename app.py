@@ -3,7 +3,7 @@ import copy
 import masterPhraseList
 from game import Game
 
-phraselist = copy.deepcopy(masterPhraseList.fullList)
+phraselist = copy.deepcopy(masterPhraseList.bigPhraseList)
 
 # Create your Dunder Main statement.
 if __name__ == '__main__':
